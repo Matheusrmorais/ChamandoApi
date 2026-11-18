@@ -12,10 +12,10 @@ public class PrincipalGoogleBooks {
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite o nome de um livro Google Books: ");
         var livro = sc.nextLine();
-        String livrofinal = URLEncoder.encode(livro, StandardCharsets.UTF_8);
-        String endereco = "https://www.googleapis.com/books/v1/volumes?q=" + livrofinal + "&key=AIzaSyCXrdNf9gAsWceOHRrNIBZ1YBA2mL30v4c";
+        String livroCodificado = URLEncoder.encode(livro, StandardCharsets.UTF_8);
+        String endereco = "https://www.googleapis.com/books/v1/volumes?q=" + livroCodificado + "&key=sua_api";
 
-        //https://www.googleapis.com/books/v1/volumes?q=harry%20potter&key=AIzaSyCXrdNf9gAsWceOHRrNIBZ1YBA2mL30v4c
+
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(endereco)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
